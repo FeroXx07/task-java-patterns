@@ -4,16 +4,19 @@ import abstract_factory_pattern.abstract_factory.ContactFactory;
 import abstract_factory_pattern.abstract_products.Address;
 import abstract_factory_pattern.abstract_products.Phone;
 
+import java.util.StringJoiner;
+
 public class Contact {
-    private Phone phone;
-    private Address address;
+    private final Phone phone;
+    private final Address address;
 
     public Contact(ContactFactory contactFactory){
         this.phone = contactFactory.createPhone();
         this.address = contactFactory.createAddress();
     }
 
-    public void printContact(){
-
+    @Override
+    public String toString() {
+        return "Address: " + address.getFormatted() + " | " + "Phone: " + phone.getFormatted();
     }
 }
