@@ -4,8 +4,6 @@ import abstract_factory_pattern.abstract_factory.ContactFactory;
 import abstract_factory_pattern.abstract_products.Address;
 import abstract_factory_pattern.abstract_products.Phone;
 
-import java.util.StringJoiner;
-
 public class Contact {
     private final Phone phone;
     private final Address address;

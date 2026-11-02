@@ -24,6 +24,9 @@ public class SpainAddress implements Address {
         if (postalCode == null || postalCode.isBlank()){
             throw new IllegalArgumentException("Postal code address cannot be null or blank.");
         }
+        if (postalCode.length() != 5){
+            throw new IllegalArgumentException("Spain postal code length should be 5 digits.");
+        }
     }
 
     @Override
