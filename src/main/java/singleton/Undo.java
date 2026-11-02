@@ -2,6 +2,8 @@ package singleton;
 
 import java.util.ArrayDeque;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Deque;
 
 public class Undo {
     private static Undo instance;
@@ -12,10 +14,10 @@ public class Undo {
         return instance;
     }
 
-    private final ArrayDeque<String> stack = new ArrayDeque<String>();
+    private final Deque<String> stack = new ArrayDeque<String>();
 
     public Collection<String> getStack() {
-        return stack.clone();
+        return Collections.unmodifiableCollection(stack);
     }
 
     public void addCommand(String command) {
