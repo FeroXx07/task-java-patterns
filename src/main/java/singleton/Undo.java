@@ -27,6 +27,8 @@ public class Undo {
     }
 
     public void showHistory() {
-        stack.forEach(System.out::println);
+        stack.descendingIterator()
+                .forEachRemaining((e) -> System.out.print(e + ", "));
+        System.out.println();
     }
 }
