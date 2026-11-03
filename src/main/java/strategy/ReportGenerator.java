@@ -22,7 +22,7 @@ public class ReportGenerator {
 
     private void validateStrategyNotNull(ReportStrategy strategy){
         if (strategy == null){
-            throw new RuntimeException("Strategy can not be null at the generation of report.");
+            throw new IllegalArgumentException("Strategy can not be null at the generation of report.");
         }
     }
 }
