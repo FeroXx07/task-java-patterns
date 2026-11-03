@@ -44,10 +44,11 @@ Els patrons es poden agrupar segons la seva intenció o propòsit principal. Les
 ## 🚀 Instal·lació i Execució
 1. Clonar el repositori: `git clone https://github.com/FeroXx07/task-java-patterns.git`
 2. Execució:
-   3. Proves: ``mvn test``
-   4. Demo del ReportApp: 
-      5. ``mvn clean compile``
-      6. ``mvn exec:java -Dexec.mainClass="strategy.ReportApp"``
-      7. Comprovar ``output/reports`` directory pels different reports
-   7. Manualment des del IDE.
+    1. Proves: ``mvn test``
+    2. Demo del ReportApp:
+        1. ``mvn clean compile``
+        2. ``mvn exec:java -Dexec.mainClass="strategy.ReportApp"``
+        3. Comprovar ``output/reports`` directory pels different reports
+    3. Manualment des del IDE.
+
 
