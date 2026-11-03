@@ -8,20 +8,24 @@ public class JsonReport implements ReportStrategy {
     @Override
     public String generate(ReportData reportData) {
         String lineSeparator = System.lineSeparator();
+        String tabSpace = "\t";
+        String doubleWhiteSpace = "  ";
+        String quadrupleWhiteSpace = "    ";
         StringBuilder builder = new StringBuilder();
 
         builder.append("{").append(lineSeparator);
-        builder.append("\"Report Data\": [");
+        builder.append(doubleWhiteSpace).append("\"Report Data\": [").append(lineSeparator);
 
         reportData.data().forEach(line -> {
-            builder.append("\"").append(line).append("\"");
+            builder.append(quadrupleWhiteSpace).append("\"").append(line).append("\"");
             if (line != reportData.data().getLast()){
                 builder.append(",");
             }
+            builder.append(lineSeparator);
         });
 
-        builder.append("]").append(lineSeparator);
-        builder.append("}").append(lineSeparator);
+        builder.append(doubleWhiteSpace).append("]").append(lineSeparator);
+        builder.append("}");
 
         return builder.toString();
     }

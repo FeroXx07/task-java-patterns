@@ -19,7 +19,7 @@ public class XmlReport implements ReportStrategy {
         });
 
         builder.append(tabSpace).append("</string-array>").append(lineSeparator);
-        builder.append("</resources>").append(lineSeparator);
+        builder.append("</resources>");
 
         return builder.toString();
     }
