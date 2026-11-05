@@ -6,12 +6,23 @@ import java.util.Collections;
 import java.util.Deque;
 
 public class Undo {
-    private static Undo instance;
+    // The field must be declared volatile so that double check lock would work
+    // correctly.
+    private static volatile Undo instance;
+
+    private Undo(){}
+
     public static Undo getInstance() {
-        if (instance == null) {
-            instance = new Undo();
+        Undo result = instance;
+        if (result != null) {
+            return result;
         }
-        return instance;
+        synchronized(Undo.class) {
+            if (instance == null) {
+                instance = new Undo();
+            }
+            return instance;
+        }
     }
 
     private final Deque<String> stack = new ArrayDeque<String>();

@@ -52,6 +52,15 @@ class UndoTest {
     }
 
     @Test
+    void shouldUndoExpectedCommand(){
+        Undo instance = Undo.getInstance();
+        instance.addCommand("mkdir carpeta");
+        instance.addCommand("cd desktop");
+        String undoneCommand = instance.undoCommand();
+        assertThat(undoneCommand).isEqualTo("cd desktop");
+    }
+
+    @Test
     void shouldHaveCorrectInsertOrder() {
         Undo instance = Undo.getInstance();
         instance.addCommand("command_1");
