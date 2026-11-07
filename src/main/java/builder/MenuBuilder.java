@@ -1,6 +1,8 @@
-package builder.interfaces;
+package builder;
 
-public class MenuBuilder implements ProgressiveMenuBuilder, StarterCourseStage, MainCourseStage, PostMainCourseStage, FinalMenuStage{
+import builder.interfaces.*;
+
+public class MenuBuilder implements ProgressiveMenuBuilder, StarterCourseStage, MainCourseStage, PostMainCourseStage, FinalMenuStage {
     private String starter;
     private String mainCourse;
     private String mainCourseSupplement;
