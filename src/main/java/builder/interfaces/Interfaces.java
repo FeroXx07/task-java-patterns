@@ -1,30 +1,28 @@
 package builder.interfaces;
 
 interface ProgressiveMenuBuilder {
-    StarterCourseBuilder withStarter(String starter);
+    StarterCourseStage withStarter(String starter);
 }
-interface StarterCourseBuilder {
-    StarterCourseBuilder isVegan();
-    StarterCourseBuilder isGlutenFree();
-    MainCourseBuilder withMainCourse(String mainCourse);
-}
-
-interface MainCourseBuilder {
-    MainCourseBuilder isVegan();
-    MainCourseBuilder isGlutenFree();
-    MainCourseBuilder withSupplement(String supplement);
-    DessertBuilder withDessert(String dessert);
-    CoffeeBuilder withCoffee(String coffee);
+interface StarterCourseStage {
+    StarterCourseStage isStarterVegan();
+    StarterCourseStage isStarterGlutenFree();
+    MainCourseStage withMainCourse(String mainCourse);
 }
 
-interface DessertBuilder {
-    DrinksBuilder withDrink(String drink);
+interface MainCourseStage {
+    MainCourseStage isMainCourseVegan();
+    MainCourseStage isMainCourseGlutenFree();
+    MainCourseStage withSupplement(String supplement);
+    PostMainCourseStage withCoffee(String coffee);
+    PostMainCourseStage withDessert(String dessert);
+    FinalMenuStage withDrink(String drinks);
 }
 
-interface CoffeeBuilder {
-    DrinksBuilder withDrink(String drink);
+interface PostMainCourseStage {
+    FinalMenuStage withDrink(String drinks);
 }
 
-interface DrinksBuilder {
+interface FinalMenuStage {
     Menu build();
 }
+
