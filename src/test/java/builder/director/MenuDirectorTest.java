@@ -31,6 +31,7 @@ class MenuDirectorTest {
         assertThat(menuResult.isStarterGlutenFree()).isTrue();
 
         assertThat(menuResult.isMainCourseVegan()).isTrue();
+        assertThat(menuResult.isMainCourseGlutenFree()).isFalse();
         assertThat(menuResult.mainCourseSupplement()).isNotBlank();
 
     }
@@ -48,6 +49,7 @@ class MenuDirectorTest {
         assertThat(menuResult.isStarterGlutenFree()).isFalse();
 
         assertThat(menuResult.isMainCourseVegan()).isFalse();
+        assertThat(menuResult.isMainCourseGlutenFree()).isFalse();
         assertThat(menuResult.mainCourseSupplement()).isBlank();
     }
 
@@ -64,6 +66,7 @@ class MenuDirectorTest {
         assertThat(menuResult.isStarterGlutenFree()).isFalse();
 
         assertThat(menuResult.isMainCourseVegan()).isTrue();
+        assertThat(menuResult.isMainCourseGlutenFree()).isFalse();
         assertThat(menuResult.mainCourseSupplement()).isBlank();
     }
 }
