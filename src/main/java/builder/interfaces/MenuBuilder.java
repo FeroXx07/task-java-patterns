@@ -1,59 +1,92 @@
 package builder.interfaces;
 
-public class MenuBuilder implements ProgressiveMenuBuilder, StarterCourseStage, MainCourseStage, FinalMenuStage{
+public class MenuBuilder implements ProgressiveMenuBuilder, StarterCourseStage, MainCourseStage, PostMainCourseStage, FinalMenuStage{
+    private String starter;
+    private String mainCourse;
+    private String mainCourseSupplement;
+    private String dessert;
+    private String coffee;
+    private String drink;
+    private boolean isStarterVegan;
+    private boolean isMainCourseVegan;
+    private boolean isStarterGlutenFree;
+    private boolean isMainCourseGlutenFree;
+
+    public MenuBuilder() {
+        starter = "";
+        mainCourse = "";
+        mainCourseSupplement = "";
+        dessert = "";
+        coffee = "";
+        drink = "";
+        isStarterVegan = false;
+        isMainCourseVegan = false;
+        isStarterGlutenFree = false;
+        isMainCourseGlutenFree = false;
+    }
 
     @Override
     public Menu build() {
-        return null;
+        return new Menu(starter, mainCourse, mainCourseSupplement, dessert, coffee, drink, isStarterVegan, isMainCourseVegan, isStarterGlutenFree, isMainCourseGlutenFree);
     }
 
     @Override
     public MainCourseStage isMainCourseVegan() {
-        return null;
+        isMainCourseVegan = true;
+        return this;
     }
 
     @Override
     public MainCourseStage isMainCourseGlutenFree() {
-        return null;
+        isMainCourseGlutenFree = true;
+        return this;
     }
 
     @Override
     public MainCourseStage withSupplement(String supplement) {
-        return null;
+        this.mainCourseSupplement = supplement;
+        return this;
     }
 
     @Override
     public PostMainCourseStage withCoffee(String coffee) {
-        return null;
+        this.coffee = coffee;
+        return this;
     }
 
     @Override
     public PostMainCourseStage withDessert(String dessert) {
-        return null;
+        this.dessert = dessert;
+        return this;
     }
 
     @Override
     public FinalMenuStage withDrink(String drinks) {
-        return null;
+        this.drink = drinks;
+        return this;
     }
 
     @Override
     public StarterCourseStage withStarter(String starter) {
-        return null;
+        this.starter = starter;
+        return this;
     }
 
     @Override
     public StarterCourseStage isStarterVegan() {
-        return null;
+        this.isStarterVegan = true;
+        return this;
     }
 
     @Override
     public StarterCourseStage isStarterGlutenFree() {
-        return null;
+        this.isStarterGlutenFree = true;
+        return this;
     }
 
     @Override
     public MainCourseStage withMainCourse(String mainCourse) {
-        return null;
+        this.mainCourse = mainCourse;
+        return this;
     }
 }
