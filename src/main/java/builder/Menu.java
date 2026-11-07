@@ -42,8 +42,10 @@ public record Menu(String starter, String mainCourse, String mainCourseSupplemen
         if (!dessert.isBlank()) {
             sb.append("\t- Dessert: ").append(dessert);
             sb.append("\n");
-        } else if (!coffee.isBlank()) {
-            sb.append("\t- Dessert: ").append(coffee);
+        }
+
+        if (!coffee.isBlank()) {
+            sb.append("\t- Coffee: ").append(coffee);
             sb.append("\n");
         }
 
