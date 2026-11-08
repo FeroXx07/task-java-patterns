@@ -2,9 +2,6 @@ package observer.stock;
 
 import observer.Observer;
 
-import java.io.PrintStream;
-import java.util.Optional;
-
 public class StockBrokerAgency implements Observer<StockEvent> {
     private final String name;
     public StockBrokerAgency(String name) {
