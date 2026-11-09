@@ -16,7 +16,7 @@ public class Sugar extends BubbleTeaDecorator {
 
     @Override
     public String getDescription() {
-        return super.getDescription() + " " + this.description;
+        return super.getDescription() + this.description;
     }
 
     @Override
