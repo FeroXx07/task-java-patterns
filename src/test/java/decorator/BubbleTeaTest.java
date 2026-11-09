@@ -7,16 +7,10 @@ import decorator.decorators.Flavor;
 import decorator.decorators.Ice;
 import decorator.decorators.Sugar;
 import decorator.decorators.Tapioca;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.within;
-import static org.junit.jupiter.api.Assertions.*;
 
 class BubbleTeaTest {
     @Test
