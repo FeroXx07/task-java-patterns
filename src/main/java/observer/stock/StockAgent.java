@@ -13,6 +13,10 @@ public class StockAgent {
         this.value = value;
     }
 
+    public double getValue() {
+        return value;
+    }
+
     public void stockMarketChange(double newValue) {
         if (this.value == newValue) {
             return;

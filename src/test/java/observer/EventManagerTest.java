@@ -6,8 +6,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyNoInteractions;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class EventManagerTest {
@@ -28,6 +27,16 @@ class EventManagerTest {
         eventManager.subscribe(observer);
         eventManager.dispatchEvent("Hello");
         verify(observer).handleEvent("Hello");
+    }
+
+    @Test
+    void shouldNotifyMultipleObservers() {
+        Observer<String> anotherObserver = mock(Observer.class);
+        eventManager.subscribe(observer);
+        eventManager.subscribe(anotherObserver);
+        eventManager.dispatchEvent("Hello");
+        verify(observer).handleEvent("Hello");
+        verify(anotherObserver).handleEvent("Hello");
     }
 
     @Test

@@ -11,8 +11,17 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 class StockAgentTest {
+
     @Test
-    public void testStockAgentNotifications() {
+    void shouldChangeStocksValue(){
+        StockAgent agent = new StockAgent("TSLA", 120.75);
+        assertThat(agent.getValue()).isEqualTo(120.75);
+        agent.stockMarketChange(150.75);
+        assertThat(agent.getValue()).isEqualTo(150.75);
+    }
+
+    @Test
+    void testStockAgentNotifications() {
         StockAgent agent = new StockAgent("TSLA", 120.75);
 
         Observer<StockEvent> alphaBrokers = new StockBrokerAgency("Alpha Brokers");
