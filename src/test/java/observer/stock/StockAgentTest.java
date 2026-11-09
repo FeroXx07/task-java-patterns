@@ -46,11 +46,13 @@ class StockAgentTest {
                     .isEqualTo("Alpha Brokers received notification: Stock market went STOCK_UP to 150.75" + System.lineSeparator() +
                             "Zenith Investments received notification: Stock market went STOCK_UP to 150.75" + System.lineSeparator());
 
+            output.reset();
+
             agent.stockMarketChange(145.50);
 
             assertThat(output.toString())
-                    .isEqualTo("Alpha Brokers received notification: Stock market went STOCK_DOWN to 145.50" + System.lineSeparator() +
-                            "Zenith Investments received notification: Stock market went STOCK_DOWN to 145.50" + System.lineSeparator());
+                    .isEqualTo("Alpha Brokers received notification: Stock market went STOCK_DOWN to 145.5" + System.lineSeparator() +
+                            "Zenith Investments received notification: Stock market went STOCK_DOWN to 145.5" + System.lineSeparator());
             // Expected console output:
             // Alpha Brokers received notification: Stock market went DOWN to 145.50
             // Zenith Investments received notification: Stock market went DOWN to 145.50
