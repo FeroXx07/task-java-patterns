@@ -2,6 +2,7 @@ package decorator;
 
 import decorator.components.LatteBase;
 import decorator.components.MatchaBase;
+import decorator.components.TeaBase;
 import decorator.decorators.Flavor;
 import decorator.decorators.Ice;
 import decorator.decorators.Sugar;
@@ -18,22 +19,15 @@ import static org.assertj.core.api.Assertions.within;
 import static org.junit.jupiter.api.Assertions.*;
 
 class BubbleTeaTest {
-    private PrintStream originalOut;
-    private ByteArrayOutputStream output;
-    @BeforeEach
-    void setUp(){
-        originalOut = System.out;
-        output = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(output));
-    }
-
-    @AfterEach
-    void cleanUp(){
-        System.setOut(originalOut);
+    @Test
+    void shouldAssertCorrectBasePrices() {
+        assertThat(new LatteBase().getCost()).isEqualTo(3.5d);
+        assertThat(new MatchaBase().getCost()).isEqualTo(3.2d);
+        assertThat(new TeaBase().getCost()).isEqualTo(3.0d);
     }
 
     @Test
-    void shouldCreateCombinationACorrectOrder(){
+    void shouldCreateCombinationACorrectOrder() {
         BubbleTea tea = new LatteBase();
         tea = new Tapioca(tea);
         tea = new Sugar(tea);
@@ -44,7 +38,7 @@ class BubbleTeaTest {
     }
 
     @Test
-    void shouldCreateCombinationBCorrectOrder(){
+    void shouldCreateCombinationBCorrectOrder() {
         BubbleTea tea = new MatchaBase();
         tea = new Flavor(tea, "Maduixa");
         tea = new Ice(tea);
@@ -56,7 +50,7 @@ class BubbleTeaTest {
     }
 
     @Test
-    void shouldCalculateCostCombinationA(){
+    void shouldCalculateCostCombinationA() {
         BubbleTea tea = new LatteBase();
         tea = new Tapioca(tea);
         tea = new Sugar(tea);
@@ -67,7 +61,7 @@ class BubbleTeaTest {
     }
 
     @Test
-    void shouldCalculateCostCombinationB(){
+    void shouldCalculateCostCombinationB() {
         BubbleTea tea = new MatchaBase();
         tea = new Flavor(tea, "Maduixa");
         tea = new Ice(tea);
